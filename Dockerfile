@@ -1,4 +1,4 @@
-FROM ruby:2.3.3
+FROM ruby:2.4.0
 
 # https://github.com/nodejs/docker-node/blob/0cc4ebee1bdaf90402e68d1a3d469e8f3712337d/7.2/Dockerfile
 RUN set -ex \
@@ -15,7 +15,7 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-ENV NODE_VERSION 7.2.0
+ENV NODE_VERSION 7.3.0
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
@@ -25,6 +25,6 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-ENV YARN_VERSION 0.18.0
+ENV YARN_VERSION 0.18.1
 
 RUN npm install -g yarn@$YARN_VERSION
