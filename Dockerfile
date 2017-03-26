@@ -1,4 +1,4 @@
-FROM ruby:2.4.0
+FROM ruby:2.4.1
 
 # https://github.com/nodejs/docker-node/blob/f9d32bad50d352fec4c62d12331d69045199426e/7.6/Dockerfile
 RUN set -ex \
